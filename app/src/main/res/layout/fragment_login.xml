@@ -60,6 +60,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end">
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/remember_me" />
+
             <TextView
                 android:id="@+id/et_forgot_password"
                 android:layout_width="wrap_content"
@@ -80,7 +87,7 @@
         <Button
             android:id="@+id/nav_to_reg_btn"
             android:layout_marginTop="20dp"
-            android:textSize="10dp"
+            android:textSize="10sp"
             android:background="@color/purple"
             android:textColor="@color/white"
             android:layout_width="wrap_content"

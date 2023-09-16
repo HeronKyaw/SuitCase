@@ -1,5 +1,6 @@
 package com.app.suitcase.ui.fragments.auth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.app.suitcase.R;
 import com.app.suitcase.data.entities.UserEntity;
+import com.app.suitcase.ui.activities.MainActivity;
 import com.app.suitcase.ui.fragments.CallBackFragment;
 import com.app.suitcase.ui.viewmodels.UserViewModel;
 
@@ -53,6 +55,8 @@ public class LoginFragment extends Fragment {
             authenticateUser.observe(getViewLifecycleOwner(), userEntity -> {
                 if (userEntity != null) {
                     Toast.makeText(requireContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+
+                    goToMainScreen();
                 } else {
                     Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_SHORT).show();
                 }
@@ -64,5 +68,15 @@ public class LoginFragment extends Fragment {
 
     public void setCallBackFragment(CallBackFragment callBackFragment) {
         this.callBackFragment = callBackFragment;
+    }
+
+    private void goToMainScreen() {
+        Intent switchToMainActivityIntent = new Intent(requireContext(), MainActivity.class);
+        switchToMainActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(switchToMainActivityIntent);
+
+        if (getActivity() != null) {
+            getActivity().finish();
+        }
     }
 }

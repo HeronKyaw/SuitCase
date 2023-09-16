@@ -11,4 +11,5 @@
     <string name="SuitCase">SuitCase</string>
     <string name="nav_to_reg_btn">Don\'t have an account?</string>
     <string name="nav_to_login_btn">Already have an account?</string>
+    <string name="remember_me">Remember me</string>
 </resources>

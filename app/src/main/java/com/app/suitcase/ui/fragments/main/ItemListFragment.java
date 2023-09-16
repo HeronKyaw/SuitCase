@@ -84,6 +84,7 @@ public class ItemListFragment extends Fragment {
                         result.getData().getIntExtra(newItemActivity.ITEM_PRICE, 0),
                         result.getData().getStringExtra(newItemActivity.ITEM_DESC),
                         result.getData().getStringExtra(newItemActivity.ITEM_IMAGE),
+                        result.getData().getBooleanExtra(newItemActivity.ITEM_MARK_AS_PURCHASED, false),
                         mPreferences.getLong("userId", 0)
                     );
                     itemListViewModel.createItem(item);

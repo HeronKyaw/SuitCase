@@ -34,6 +34,9 @@ public class ItemEntity {
     @ColumnInfo(name = "image")
     public String image;
 
+    @ColumnInfo(name = "mark_as_purchased")
+    public boolean mark_as_purchased;
+
     @ColumnInfo(name = "user_id")
     public long user_id;
 
@@ -45,11 +48,12 @@ public class ItemEntity {
         * @param user_id: long
      */
 
-    public ItemEntity(@NonNull String name, int price, @NonNull String description, @NonNull String image, long user_id) {
+    public ItemEntity(@NonNull String name, int price, @NonNull String description, @NonNull String image, boolean mark_as_purchased, long user_id) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.image = image;
+        this.mark_as_purchased = mark_as_purchased;
         this.user_id = user_id;
     }
 

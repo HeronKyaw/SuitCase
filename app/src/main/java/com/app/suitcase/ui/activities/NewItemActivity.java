@@ -35,6 +35,7 @@ public class NewItemActivity extends AppCompatActivity {
     public static final String ITEM_PRICE = "price";
     public static final String ITEM_DESC = "desc";
     public static final String ITEM_IMAGE = "image";
+    public static final String ITEM_MARK_AS_PURCHASED = "mark_as_purchased";
 
     private String imagePath;
     private EditText mName, mPrice, mDescription;
@@ -77,6 +78,7 @@ public class NewItemActivity extends AppCompatActivity {
                 replyIntent.putExtra(ITEM_PRICE, price);
                 replyIntent.putExtra(ITEM_DESC, description);
                 replyIntent.putExtra(ITEM_IMAGE, imagePath);
+                replyIntent.putExtra(ITEM_MARK_AS_PURCHASED, false); // TODO: mark as purchased
 
                 setResult(RESULT_OK, replyIntent);
             }

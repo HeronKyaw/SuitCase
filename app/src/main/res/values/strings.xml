@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SuitCase</string>
+    <string name="login">Login</string>
+    <string name="et_username">Username</string>
+    <string name="et_password">Password</string>
+    <string name="et_forgot_password">Forgot password?</string>
+    <string name="login_btn">LOGIN</string>
+    <string name="reg_btn">REGISTER</string>
+    <string name="et_confirm_password">Confirm password</string>
+    <string name="et_email">Email</string>
+    <string name="SuitCase">SuitCase</string>
+    <string name="nav_to_reg_btn">Don\'t have an account?</string>
+    <string name="nav_to_login_btn">Already have an account?</string>
+</resources>

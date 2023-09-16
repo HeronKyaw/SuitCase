@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.app.suitcase.R;
 import com.app.suitcase.data.entities.UserEntity;
-import com.app.suitcase.ui.fragments.CallBackFragment;
 import com.app.suitcase.ui.viewmodels.UserViewModel;
 
 public class SignUpFragment extends Fragment {
@@ -23,7 +22,7 @@ public class SignUpFragment extends Fragment {
     Button btnSignUp, navigateToLogin;
     EditText etUsername, etPassword, etConfirmPassword, etEmail;
     String username, pass, cpass, email;
-    CallBackFragment callBackFragment;
+    AuthCallBackFragment callBackFragment;
     private UserViewModel mUserViewModel;
 
     @Nullable
@@ -65,7 +64,7 @@ public class SignUpFragment extends Fragment {
 
         return view;
     }
-    public void setCallBackFragment(CallBackFragment callBackFragment) {
+    public void setCallBackFragment(AuthCallBackFragment callBackFragment) {
         this.callBackFragment = callBackFragment;
     }
 

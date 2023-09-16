@@ -1,6 +1,8 @@
 package com.app.suitcase.ui.fragments.auth;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +20,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.app.suitcase.R;
 import com.app.suitcase.data.entities.UserEntity;
 import com.app.suitcase.ui.activities.MainActivity;
-import com.app.suitcase.ui.fragments.CallBackFragment;
 import com.app.suitcase.ui.viewmodels.UserViewModel;
 
 public class LoginFragment extends Fragment {
@@ -26,13 +27,19 @@ public class LoginFragment extends Fragment {
     Button btnLogin, navigateToSignUp;
     EditText etUsername, etPassword;
     private String username, password;
-    private CallBackFragment callBackFragment;
+    private AuthCallBackFragment callBackFragment;
     private UserViewModel mUserViewModel;
+
+    public SharedPreferences mPreferences;
+    public SharedPreferences.Editor mEditPref;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
+
+        mPreferences = getActivity().getSharedPreferences("SuitCasePref", Context.MODE_PRIVATE);
+        mEditPref = mPreferences.edit();
 
         btnLogin = view.findViewById(R.id.login_btn);
         navigateToSignUp = view.findViewById(R.id.nav_to_reg_btn);
@@ -46,6 +53,13 @@ public class LoginFragment extends Fragment {
             }
         });
 
+
+        long usedId = mPreferences.getLong("userId", 0);
+
+        if (usedId != 0) {
+            goToMainScreen();
+        }
+
         btnLogin.setOnClickListener(v -> {
             username = etUsername.getText().toString();
             password = etPassword.getText().toString();
@@ -54,8 +68,9 @@ public class LoginFragment extends Fragment {
 
             authenticateUser.observe(getViewLifecycleOwner(), userEntity -> {
                 if (userEntity != null) {
+                    mEditPref.putLong("userId", userEntity.uid);
+                    mEditPref.commit();
                     Toast.makeText(requireContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-
                     goToMainScreen();
                 } else {
                     Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_SHORT).show();
@@ -66,7 +81,7 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
-    public void setCallBackFragment(CallBackFragment callBackFragment) {
+    public void setCallBackFragment(AuthCallBackFragment callBackFragment) {
         this.callBackFragment = callBackFragment;
     }
 

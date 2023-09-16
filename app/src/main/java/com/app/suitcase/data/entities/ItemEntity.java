@@ -52,4 +52,24 @@ public class ItemEntity {
         this.image = image;
         this.user_id = user_id;
     }
+
+    public ItemEntity getItem() {
+        return this;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public String getItemName() {
+        return this.name;
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public String getImagePath() {
+        return this.image;
+    }
 }

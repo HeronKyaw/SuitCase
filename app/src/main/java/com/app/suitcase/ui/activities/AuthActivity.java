@@ -5,20 +5,21 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
 
 import com.app.suitcase.R;
-import com.app.suitcase.ui.fragments.CallBackFragment;
+import com.app.suitcase.ui.fragments.auth.AuthCallBackFragment;
 import com.app.suitcase.ui.fragments.auth.LoginFragment;
 import com.app.suitcase.ui.fragments.auth.SignUpFragment;
 
-public class AuthActivity extends AppCompatActivity implements CallBackFragment {
+public class AuthActivity extends AppCompatActivity implements AuthCallBackFragment {
 
     Fragment fragment;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+    SharedPreferences mPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

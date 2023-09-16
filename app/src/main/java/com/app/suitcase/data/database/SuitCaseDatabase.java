@@ -60,6 +60,9 @@ public abstract class SuitCaseDatabase extends RoomDatabase {
 
                 UserEntity user = new UserEntity("admin", "admin", "");
                 userDao.createUser(user);
+
+                ItemEntity item = new ItemEntity("iPhone 15 pro", 999, "Latest iPhone generation", "", 1);
+                itemDao.createItem(item);
             });
         }
     };

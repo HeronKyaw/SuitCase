@@ -32,7 +32,7 @@ public class ItemRepository {
         });
     }
 
-    public void updteItem(ItemEntity itemEntity) {
+    public void updateItem(ItemEntity itemEntity) {
         SuitCaseDatabase.databaseWriteExecutor.execute(() -> {
             itemDao.updateItem(itemEntity);
         });

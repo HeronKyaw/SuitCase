@@ -34,7 +34,7 @@ public class ItemListViewModel extends AndroidViewModel {
         return itemRepository.getItem(item_id);
     }
 
-    public void updateItem(ItemEntity item) { itemRepository.updteItem(item); }
+    public void updateItem(ItemEntity item) { itemRepository.updateItem(item); }
 
     public void deleteItem(ItemEntity item) { itemRepository.deleteItem(item); }
 

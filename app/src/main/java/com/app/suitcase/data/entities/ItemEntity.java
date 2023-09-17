@@ -35,7 +35,7 @@ public class ItemEntity {
     public String image;
 
     @ColumnInfo(name = "mark_as_purchased")
-    public boolean mark_as_purchased;
+    public Boolean mark_as_purchased;
 
     @ColumnInfo(name = "user_id")
     public long user_id;
@@ -46,6 +46,7 @@ public class ItemEntity {
         * @param description: String
         * @param image: String
         * @param user_id: long
+        * @param mark_as_purchased: boolean
      */
 
     public ItemEntity(@NonNull String name, int price, @NonNull String description, @NonNull String image, boolean mark_as_purchased, long user_id) {

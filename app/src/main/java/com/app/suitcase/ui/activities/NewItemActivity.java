@@ -71,8 +71,6 @@ public class NewItemActivity extends AppCompatActivity {
                 }
                 int price = Integer.parseInt(tempPrice);
                 String description = mDescription.getText().toString();
-                String image = mImage.toString();
-
 
                 replyIntent.putExtra(ITEM_NAME, name);
                 replyIntent.putExtra(ITEM_PRICE, price);
